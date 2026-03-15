@@ -90,7 +90,7 @@ export const Navbar = () => {
 };
 
 export const Hero = () => {
-  const words = ['Recruiters', 'Designers', 'Developers', 'Internet'];
+  const words = ['Recruiters', 'Designers', 'Developers', 'Internet','Friends'];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export const Hero = () => {
           transition={{ duration: 4, repeat: Infinity }}
           className="absolute top-[15%] left-[10%] border-2 border-blue-500 p-2 rounded-lg bg-white shadow-sm"
         >
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-16 h-16" alt="Avatar" />
+          <img src="https://framerusercontent.com/images/9bXgJDfPgTzjFjFFlOTbQEH4c.png?scale-down-to=512" className="w-16 h-16" alt="Avatar" />
         </motion.div>
 
         <motion.div 
@@ -124,7 +124,7 @@ export const Hero = () => {
           transition={{ duration: 5, repeat: Infinity }}
           className="absolute top-[10%] right-[20%] border-2 border-blue-500 px-4 py-1 rounded-full bg-white font-medium"
         >
-          Kapish Verma
+          Developer
         </motion.div>
 
         <motion.div 
