@@ -17,15 +17,19 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         rel="noopener noreferrer"
         className="block"
       >
-        <div className="bg-white rounded-[32px] overflow-hidden shadow-sm border border-black/5 card-hover mb-6 group-hover:shadow-lg transition-shadow">
-          <div className="aspect-[16/10] overflow-hidden relative bg-slate-50 flex items-center justify-center p-8">
+        <div className="rounded-[32px] overflow-hidden shadow-sm border border-black/5 mb-6">
+          <div className="aspect-[16/10] relative">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="bg-white p-4 rounded-full">
+                <ExternalLink size={24} className="text-text-dark" />
+              </div>
+            </div>
           </div>
         </div>
         <div className="px-2">
@@ -90,7 +94,7 @@ export const CaseStudies = () => {
         <div className="text-center max-w-2xl mx-auto mb-20">
           <h2 className="font-display text-4xl font-bold mb-4">Featured Case Studies</h2>
           <p className="text-text-muted text-lg">
-            A deeper dive into the problems solved and the process behind the pixels.
+           
           </p>
         </div>
 
@@ -109,7 +113,7 @@ export const CaseStudies = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full rounded-[32px] shadow-sm"
-                    referrerPolicy="no-referrer"
+                    
                   />
                 </div>
               </div>
