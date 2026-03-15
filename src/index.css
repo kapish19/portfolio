@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  
+  --color-bg-soft: #F7F8FA;
+  --color-accent-primary: #2563EB;
+  --color-accent-secondary: #DBEAFE;
+  --color-text-dark: #111827;
+  --color-text-muted: #6B7280;
+  
+  --color-highlight-purple: #A78BFA;
+  --color-highlight-pink: #F472B6;
+  --color-highlight-green: #34D399;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-soft text-text-dark font-sans antialiased;
+  }
+}
+
+.glass-nav {
+  @apply sticky top-0 z-50 transition-all duration-300;
+}
+
+.glass-nav.scrolled {
+  @apply bg-white/80 backdrop-blur-md shadow-sm;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+}
+
+.section-padding {
+  @apply py-12 md:py-20;
+}
+
+.dotted-grid {
+  background-image: radial-gradient(#2563EB 0.5px, transparent 0.5px);
+  background-size: 40px 40px;
+}
+
+.container-custom {
+  @apply max-w-[1200px] mx-auto px-6;
+}
