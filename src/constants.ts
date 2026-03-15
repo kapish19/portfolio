@@ -12,10 +12,10 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'MakeMyTrip Product Improvement',
-    description: 'A comprehensive product solution focused on boosting flight cancellation recovery and user retention through strategic UX interventions.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/MakeMyTrip_Logo.png',
-    tags: ['Product Case Study', 'UX Research'],
+    title: 'MakeMyTrip Product Improvement Case Study',
+    description: 'product solution boosting flight cancellation recovery and retention',
+    image: 'https://i.postimg.cc/bJDqGLgL/Screenshot-2026-03-15-at-11-05-48-PM.png',
+    tags: [],
     category: 'work',
     tools: ['Product Strategy', 'User Research', 'Prototyping','UI/UX'],
     link: 'https://drive.google.com/file/d/1-RzTGI4ezEvXlevDeqiycqpZ08GM7P7C/view?usp=sharing'
