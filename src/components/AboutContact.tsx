@@ -74,24 +74,30 @@ export const Contact = () => {
     <section id="contact" className="section-padding bg-[#FFF9F5]">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
+          
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <h2 className="font-display text-5xl font-bold mb-6">get in touch!</h2>
+
             <div className="space-y-4 text-text-muted text-lg leading-relaxed mb-10">
               <p>
                 whether you want to build something cool, fix something broken, or just rant about product, i’m all ears.
               </p>
               <p>
-                also, if you’ve got feedback on any of my work — good, bad, or “why did you even make this?” — i’d genuinely love to hear it. i’m always learning (and debugging my brain).
+                also, if you’ve got feedback on any of my work — good, bad, or “why did you even make this?” — i’d genuinely love to hear it.
               </p>
               <p>
-                i'll try to get back to you as soon as possible. alternatively, you can email me at{' '}
-                <a href="mailto:kapishverma2005@gmail.com" className="text-text-dark font-medium border-b border-dashed border-black/20">
+                alternatively, email me at{" "}
+                <a
+                  href="mailto:kapishverma2005@gmail.com"
+                  className="text-text-dark font-medium border-b border-dashed border-black/20"
+                >
                   kapishverma2005@gmail.com
-                </a>.
+                </a>
               </p>
             </div>
 
@@ -114,40 +120,64 @@ export const Contact = () => {
             </div>
           </motion.div>
 
+          {/* RIGHT SIDE FORM */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="bg-white p-8 md:p-10 rounded-[40px] shadow-sm border border-black/5"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+
+            <form
+              action="https://formspree.io/f/mbdzaqpk"
+              method="POST"
+              className="space-y-6"
+            >
+
+              {/* optional email subject */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Portfolio Contact!"
+              />
+
               <div>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Name"
-                  className="w-full px-6 py-4 bg-[#FFF9F5] border border-black/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent-primary/20 transition-all text-text-dark placeholder:text-text-muted/50"
+                  required
+                  className="w-full px-6 py-4 bg-[#FFF9F5] border border-black/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent-primary/20 transition-all"
                 />
               </div>
+
               <div>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
-                  className="w-full px-6 py-4 bg-[#FFF9F5] border border-black/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent-primary/20 transition-all text-text-dark placeholder:text-text-muted/50"
+                  required
+                  className="w-full px-6 py-4 bg-[#FFF9F5] border border-black/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent-primary/20 transition-all"
                 />
               </div>
+
               <div>
                 <textarea
+                  name="message"
                   placeholder="Anything you wanna say"
                   rows={5}
-                  className="w-full px-6 py-4 bg-[#FFF9F5] border border-black/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent-primary/20 transition-all resize-none text-text-dark placeholder:text-text-muted/50"
+                  required
+                  className="w-full px-6 py-4 bg-[#FFF9F5] border border-black/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent-primary/20 transition-all resize-none"
                 ></textarea>
               </div>
+
               <button
                 type="submit"
                 className="w-full bg-[#FFE4D1] text-[#A35D2E] py-5 rounded-2xl font-bold text-lg hover:bg-[#FFD9C0] transition-all"
               >
                 Send message
               </button>
+
             </form>
           </motion.div>
         </div>
@@ -155,6 +185,8 @@ export const Contact = () => {
     </section>
   );
 };
+                
+            
 
 export const Footer = () => {
   return (
