@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ExternalLink, ChevronDown, FileText, User, Github, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, ExternalLink, ChevronDown, FileText, User, Github, Linkedin, Instagram, Code, Cpu, Globe, Mail, Figma } from 'lucide-react';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -157,6 +157,38 @@ export const Hero = () => {
           className="absolute bottom-[30%] right-[15%] border-2 border-blue-500 p-2 rounded-lg bg-white"
         >
           <Linkedin className="text-blue-600" size={24} />
+        </motion.div>
+
+        <motion.div 
+          animate={{ y: [0, -15, 0] }} 
+          transition={{ duration: 5, repeat: Infinity }}
+          className="absolute top-[35%] right-[5%] border-2 border-blue-500 p-2 rounded-lg bg-white"
+        >
+          <Code className="text-emerald-500" size={24} />
+        </motion.div>
+
+        <motion.div 
+          animate={{ x: [-10, 10, -10] }} 
+          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute bottom-[10%] left-[30%] border-2 border-blue-500 p-2 rounded-lg bg-white"
+        >
+          <Figma className="text-orange-500" size={24} />
+        </motion.div>
+
+        <motion.div 
+          animate={{ y: [10, -10, 10] }} 
+          transition={{ duration: 4.5, repeat: Infinity }}
+          className="absolute top-[50%] right-[25%] border-2 border-blue-500 p-2 rounded-lg bg-white"
+        >
+          <Globe className="text-blue-400" size={24} />
+        </motion.div>
+
+        <motion.div 
+          animate={{ scale: [1, 1.1, 1] }} 
+          transition={{ duration: 3.5, repeat: Infinity }}
+          className="absolute top-[60%] left-[10%] border-2 border-blue-500 p-2 rounded-lg bg-white"
+        >
+          <Cpu className="text-purple-500" size={24} />
         </motion.div>
 
         <motion.div 

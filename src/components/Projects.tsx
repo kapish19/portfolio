@@ -75,7 +75,7 @@ export const WorkShowcase = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {workProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

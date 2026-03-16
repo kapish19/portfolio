@@ -31,16 +31,6 @@ export const PROJECTS: Project[] = [
     link: 'https://drive.google.com/file/d/1vPeVfgL6vuJeWdcItNwHQV7hLNFRuyYi/view?usp=sharing'
   },
   {
-    id: '9',
-    title: 'Fintech Dashboard',
-    description: 'product solution boosting flight cancellation recovery and retention',
-    image: 'https://picsum.photos/seed/fintech/1200/800',
-    tags: [],
-    category: 'work',
-    tools: ['Figma', 'React', 'Chart.js'],
-    link: '#'
-  },
-  {
     id: '3',
     title: 'Xyne Spaces',
     description: 'An AI-powered collaboration tool that brings Slack, Jira, Notion & Chrome into a single symbiotic package for maximum productivity.',
