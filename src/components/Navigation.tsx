@@ -17,7 +17,7 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Work', href: '#work' },
-    { name: 'Resume', href: 'https://drive.google.com/file/d/1Z2q0RRsfQU5vGyYW81WK1puEnCpGK-eD/view?usp=sharing' },
+    { name: 'Resume', href: 'https://drive.google.com/file/d/17uVuZDe9Ny9Zf2Q6tTeuFh3dFC7pkn_I/view?usp=sharing' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -247,7 +247,7 @@ export const Hero = () => {
           <div className="flex flex-col items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-widest text-text-muted">cv</span>
             <a 
-              href="https://drive.google.com/file/d/1Z2q0RRsfQU5vGyYW81WK1puEnCpGK-eD/view?usp=sharing"
+              href="https://drive.google.com/file/d/17uVuZDe9Ny9Zf2Q6tTeuFh3dFC7pkn_I/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 border-2 border-purple-500 flex items-center justify-center rounded-lg hover:bg-purple-50 transition-colors"
