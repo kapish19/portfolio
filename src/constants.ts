@@ -23,12 +23,32 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'Netflix Recommendation System Deep Dive',
-    description: 'product teardown of Netflix recommendation system driving engagement and retention',
+    description: 'product teardown of recommendation system driving engagement and retention',
     image: 'https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Logo.png',
     tags: [],
     category: 'work',
     tools: ['Product Strategy', 'User Journey Mapping', 'Metric Definition'],
     link: 'https://drive.google.com/file/d/1vPeVfgL6vuJeWdcItNwHQV7hLNFRuyYi/view?usp=sharing'
+  },
+  {
+    id: '10',
+    title: 'Compliance Copilot',
+    description: 'AI decision support returning automated verdicts & reducing resolution time by 80% via RAG.',
+    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80',
+    tags: [],
+    category: 'work',
+    tools: ['Product Sense', 'Prototyping', 'RAG', 'Decision Support', 'User Empathy', 'Innovation'],
+    link: 'https://www.notion.so/919010446bff48fd8f0d09d021e6b6f6?v=8a88bd683ad14d32900192cc0afbc71a&p=a8f1b34584f74759ae9d2df58b9852ac&pm=c'
+  },
+  {
+    id: '11',
+    title: ' Vision-to-Action Quality Control Agent',
+    description: 'AI agent converting defect detection into automated operational and procurement workflows.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    tags: [],
+    category: 'work',
+    tools: ['Product Sense', 'Prototyping', 'User Empathy', 'Innovation', 'End-to-End Product Development'],
+    link: 'https://www.notion.so/919010446bff48fd8f0d09d021e6b6f6?v=8a88bd683ad14d32900192cc0afbc71a&p=8a79c66c69944cb5998e4f2cc835270d&pm=c'
   },
   {
     id: '3',
@@ -54,7 +74,7 @@ export const PROJECTS: Project[] = [
     id: '6',
     title: 'HealthConnect',
     description: 'Built AI healthcare platform improving emergency coverage mapping',
-    image: 'https://idronline.org/wp-content/uploads/2020/12/OGFB4B0.jpg.webp',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80',
     tags: ['Side Projects'],
     category: 'personal',
     link: 'http://github.com/kapish19/HealthConnectWeb'
@@ -63,7 +83,7 @@ export const PROJECTS: Project[] = [
     id: '7',
     title: 'Satellite Imagery Processing API',
     description: 'FastAPI Geospatial Engine for NDVI and Image Change Detection',
-    image: 'https://cdn-ikponof.nitrocdn.com/vGqfYAGlOLDkYkJqZhYIYKEsibdbZnkc/assets/images/optimized/rev-425dd68/www.propelleraero.com/wp-content/uploads/2023/08/image1-1.png.webp',
+    image: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=600&q=80',
     tags: ['Side Projects'],
     category: 'personal',
     link: 'https://github.com/kapish19/satellite_imagery_api'
@@ -72,7 +92,7 @@ export const PROJECTS: Project[] = [
     id: '8',
     title: 'Tunely – Spotify Playlist Generator',
     description: 'AI Mood-Based Music Recommendation Web App using Gemini and Spotify',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg',
+    image: 'https://images.unsplash.com/photo-1611339555312-e607c8352fd7?auto=format&fit=crop&w=600&q=80',
     tags: ['Side Projects'],
     category: 'personal',
     link: 'https://github.com/kapish19/tunely-ai-playlist'

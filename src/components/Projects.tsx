@@ -17,8 +17,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         rel="noopener noreferrer"
         className="block"
       >
-        <div className="rounded-[32px] overflow-hidden shadow-sm border border-black/5 mb-6">
-          <div className="aspect-[16/10] relative">
+        <div className="rounded-2xl overflow-hidden shadow-sm border border-black/5 mb-3">
+          <div className="aspect-video relative">
             <img
               src={project.image}
               alt={project.title}
@@ -26,34 +26,39 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div className="bg-white p-4 rounded-full">
-                <ExternalLink size={24} className="text-text-dark" />
+              <div className="bg-white p-3 rounded-full">
+                <ExternalLink size={20} className="text-text-dark" />
               </div>
             </div>
           </div>
         </div>
-        <div className="px-2">
-          <div className="flex items-center gap-2 mb-3">
+        <div className="px-1">
+          <div className="flex items-center gap-1 mb-1.5">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-[12px] font-semibold uppercase tracking-wider text-text-muted">
+              <span key={tag} className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">
                 {tag}
               </span>
             ))}
           </div>
-          <h3 className="font-display text-2xl font-bold mb-3 flex items-center gap-2 group-hover:text-accent-primary transition-colors">
-            {project.title}
-            <ArrowRight size={20} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+          <h3 className="font-display text-base md:text-lg font-bold mb-1.5 flex items-start gap-1 group-hover:text-accent-primary transition-colors line-clamp-2">
+            <span className="flex-1">{project.title}</span>
+            <ArrowRight size={16} className="mt-1 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all flex-shrink-0" />
           </h3>
-          <p className="text-text-muted leading-relaxed mb-4">
+          <p className="text-text-muted text-xs md:text-sm leading-relaxed mb-3 line-clamp-3">
             {project.description}
           </p>
           {project.tools && (
-            <div className="flex flex-wrap gap-2">
-              {project.tools.map((tool) => (
-                <span key={tool} className="px-3 py-1 bg-bg-soft rounded-full text-xs font-medium text-text-muted">
+            <div className="flex flex-wrap gap-1">
+              {project.tools.slice(0, 3).map((tool) => (
+                <span key={tool} className="px-2 py-0.5 bg-bg-soft rounded-full text-[10px] font-medium text-text-muted leading-none">
                   {tool}
                 </span>
               ))}
+              {project.tools.length > 3 && (
+                <span className="px-1.5 py-0.5 bg-bg-soft rounded-full text-[10px] font-medium text-text-muted/80 leading-none">
+                  +{project.tools.length - 3}
+                </span>
+              )}
             </div>
           )}
         </div>
@@ -75,7 +80,7 @@ export const WorkShowcase = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {workProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
