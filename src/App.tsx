@@ -1452,19 +1452,17 @@ export default function App() {
                     </div>
 
                     <div className="win98-inset bg-white flex-1 p-3 overflow-y-auto select-none">
-                      <p className="text-xs text-mem text-gray-600 mb-3 border-b border-dashed border-gray-200 pb-1.5 font-sans">
-                        📸 Double-click any photo below to inspect in high-contrast Retro Image Viewer & view information:
-                      </p>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3.5">
                         {WORK_PHOTOS.map(photo => (
                           <div 
                             key={photo.title}
                             onClick={() => setSelectedExplorerItemId(`work-${photo.title}`)}
+                            onMouseEnter={() => setSelectedExplorerItemId(`work-${photo.title}`)}
                             onDoubleClick={() => {
                               setActivePhotoViewerUrl(photo.url);
                               setActivePhotoViewerTitle(photo.title);
                             }}
-                            className={`flex flex-col items-center bg-[#f5f5f5] border border-gray-200 p-2 text-center cursor-pointer transition-colors max-w-[155px] mx-auto rounded-sm ${selectedExplorerItemId === `work-${photo.title}` ? 'bg-[#000080]/15 border-blue-800' : ''}`}
+                            className={`flex flex-col items-center bg-[#f5f5f5] p-2 text-center cursor-pointer transition-colors max-w-[155px] mx-auto rounded-sm border ${selectedExplorerItemId === `work-${photo.title}` ? 'bg-[#000080]/15 border-blue-800' : 'border-gray-200 hover:border-blue-800/80 hover:bg-[#000080]/10'}`}
                           >
                             <div className="w-full aspect-[4/3] border border-gray-300 overflow-hidden bg-gray-50 flex items-center justify-center pointer-events-none select-none">
                               <img 
@@ -1474,9 +1472,6 @@ export default function App() {
                                 referrerPolicy="no-referrer"
                               />
                             </div>
-                            <span className="text-[11px] text-gray-800 font-sans mt-2 truncate w-full block font-medium">
-                              {photo.title}
-                            </span>
                           </div>
                         ))}
                       </div>
