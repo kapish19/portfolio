@@ -30,12 +30,14 @@ import { PROJECTS, Project } from './constants';
 import { AppWindow, ExplorerFolder } from './types';
 
 const WORK_PHOTOS = [
-  { url: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80', title: 'hackathon_team_coding.jpg', desc: 'Working late-night at AWS hackathon coding RAG features.' },
-  { url: 'https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80', title: 'product_iteration.jpg', desc: 'Brainstorming session on Figma whiteboard wireframes.' },
-  { url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80', title: 'system_architecture.jpg', desc: 'Mapping the multi-stage vector retrievals pipelines.' },
-  { url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80', title: 'pitch_day_slides.jpg', desc: 'Presenting the final business case study presentation.' },
-  { url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80', title: 'nsut_tech_campus.jpg', desc: 'The historic beautiful tech campus square of NSUT Delhi.' },
-  { url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80', title: 'terminal_debugging.jpg', desc: 'Configuring Linux COM port diagnostics to hook API pipelines.' },
+  { url: 'https://lh3.googleusercontent.com/d/16GC-5XdJ2tA0yMGbrR2DMHUvIQNWyTex', title: 'clinks.jpg', desc: 'Analyzing interaction spikes and clinks patterns.' },
+  { url: 'https://lh3.googleusercontent.com/d/14SEsOOqkgjA_9-HcpClFQeq9Ka5nb7XR', title: 'argus.png', desc: 'Developing the Argus smart system diagnostic platform.' },
+  { url: 'https://lh3.googleusercontent.com/d/1vvNoEDOgVXU8MBq33oO4AlYqxJM1FxaU', title: 'arhus.png', desc: 'Visualizing spatial mappings and neural node connections.' },
+  { url: 'https://lh3.googleusercontent.com/d/14k6k980-N8WZdOVcZY2XnycWVWmVYUq1', title: 'bain.png', desc: 'Designing data matrices and system configurations.' },
+  { url: 'https://lh3.googleusercontent.com/d/1fW1h_I1n-fBtJgJRBQG7w3yUlJcAXqXf', title: 'iot.HEIC', desc: 'Connecting micro-controllers and IoT diagnostic hardware.' },
+  { url: 'https://lh3.googleusercontent.com/d/1d6ND8k3mnfmqolP-f9M1H8DivRCuLYLU', title: 'refugee_routes.PNG', desc: 'Plotting geospatial migration charts and routes visualizations.' },
+  { url: 'https://lh3.googleusercontent.com/d/1MCFUDuwSc_nHwKwycdd8uy0dIpZMOP09', title: 'reptile.png', desc: 'Adaptive meta-learning and neural network training processes.' },
+  { url: 'https://lh3.googleusercontent.com/d/1dOx9KPAPdcitzzmT0ssFCC0hjTJP5Sni', title: 'tim.HEIC', desc: 'Assessing algorithmic time efficiency complexity analyses.' },
 ];
 
 const FUN_PHOTOS = [
@@ -190,6 +192,19 @@ export default function App() {
       height: 'auto',
       zIndex: 9,
       iconType: 'explorer'
+    },
+    {
+      id: 'workPhotos',
+      title: 'C:\\My Documents\\Work Photos',
+      isOpen: false,
+      isMinimized: false,
+      isMaximized: false,
+      x: 230,
+      y: 100,
+      width: 530,
+      height: 460,
+      zIndex: 11,
+      iconType: 'documents'
     },
     {
       id: 'themes',
@@ -762,6 +777,25 @@ export default function App() {
           </span>
         </div>
 
+        {/* Work Photos Icon */}
+        <div 
+          onClick={() => setSelectedDesktopIconId('workPhotos')}
+          onDoubleClick={() => openWindow('workPhotos')}
+          onTouchEnd={() => {
+            if (selectedDesktopIconId === 'workPhotos') {
+              openWindow('workPhotos');
+            } else {
+              setSelectedDesktopIconId('workPhotos');
+            }
+          }}
+          className={`flex flex-col items-center p-2 rounded cursor-pointer w-[80px] text-center select-none ${selectedDesktopIconId === 'workPhotos' ? 'bg-[#000080]/30 border border-dotted border-[#fffff1]' : ''}`}
+        >
+          <CameraIcon className="w-10 h-10 drop-shadow" />
+          <span className="text-white text-[11px] mt-1 drop-shadow-md leading-tight text-center break-words select-none">
+            Work Photos
+          </span>
+        </div>
+
         {/* Themes Icon */}
         <div 
           onClick={() => setSelectedDesktopIconId('themes')}
@@ -1038,7 +1072,7 @@ export default function App() {
                         <button 
                           id="explorer-btn-up-static"
                           onClick={() => setExplorerFolder('root')}
-                          className="win98-button px-2.5 py-0.5 font-bold font-retro text-[11px]"
+                          className="win98-button px-2.5 py-0.5 font-bold font-sans text-[11px]"
                         >
                           📂 Reset File Path
                         </button>
@@ -1053,8 +1087,8 @@ export default function App() {
                     {/* Project Folder list region */}
                     <div className="win98-inset bg-white flex-1 p-3 overflow-y-auto select-text">
                       <div className="border-b border-gray-200 pb-2 mb-3.5 select-none">
-                        <h2 className="text-base font-bold text-blue-900 font-retro tracking-tight mb-0.5">📂 Portfolio Directories & Projects</h2>
-                        <p className="text-gray-500 text-[11px] leading-tight font-retro font-semibold">Click "PROPERTIES" to inspect build tools & technologies. Click "LAUNCH TARGET" to test execution.</p>
+                        <h2 className="text-base font-bold text-blue-900 font-sans tracking-tight mb-0.5">📂 Portfolio Directories & Projects</h2>
+                        <p className="text-gray-500 text-[11px] leading-tight font-sans font-medium">Click "PROPERTIES" to inspect build tools & technologies. Click "LAUNCH TARGET" to test execution.</p>
                       </div>
 
                       <div className="flex flex-col gap-3.5">
@@ -1074,28 +1108,28 @@ export default function App() {
                           return (
                             <div 
                               key={project.id}
-                              className="bg-white border border-gray-300 p-3.5 flex flex-col gap-2 font-retro hover:border-gray-400 transition-colors"
+                              className="bg-white border border-gray-200 p-3 flex flex-col gap-1.5 font-sans hover:border-gray-300 transition-colors rounded-sm"
                             >
-                              {/* Simple header with category tag and title using font-retro */}
-                              <div className="flex justify-between items-center select-none font-retro border-b border-gray-200 pb-1.5">
-                                <span className="font-retro font-semibold text-gray-900 flex items-center gap-1.5 text-[12px] md:text-[13px]">
+                              {/* Simple header with category tag and title using font-sans */}
+                              <div className="flex justify-between items-center select-none font-sans border-b border-gray-100 pb-1">
+                                <span className="font-sans font-semibold text-gray-900 flex items-center gap-1.5 text-[12px] md:text-[13px]">
                                   <span>{emoji}</span> {project.title}
                                 </span>
-                                <span className="font-retro text-[9px] bg-gray-100 text-gray-600 font-bold uppercase px-1.5 py-0.5 border border-gray-200 rounded-sm">
+                                <span className="font-sans text-[9px] bg-gray-100 text-gray-600 font-bold uppercase px-1.5 py-0.5 border border-gray-200 rounded-sm">
                                   {project.category}
                                 </span>
                               </div>
 
                               {/* Description body */}
-                              <p className="text-[12px] text-gray-700 leading-normal font-retro py-1">
+                              <p className="text-[12px] text-gray-600 leading-normal font-sans py-0.5">
                                 {project.description}
                               </p>
 
                               {/* Skill badge list */}
                               {project.tools && project.tools.length > 0 && (
-                                <div className="flex flex-wrap gap-1 mt-0.5 select-none font-retro">
+                                <div className="flex flex-wrap gap-1 mt-0.5 select-none font-sans">
                                   {project.tools.map(tool => (
-                                    <span key={tool} className="bg-gray-50 text-gray-500 font-retro px-1.5 py-0.5 text-[10px] border border-gray-200 rounded-sm">
+                                    <span key={tool} className="bg-gray-50 text-gray-500 font-sans px-1.5 py-0.5 text-[10px] border border-gray-100 rounded-sm">
                                       {tool}
                                     </span>
                                   ))}
@@ -1103,12 +1137,12 @@ export default function App() {
                               )}
 
                               {/* Row action executors with minimal look */}
-                              <div className="flex justify-between items-center select-none text-[10px] font-retro pt-2 border-t border-gray-100 mt-0.5">
-                                <span className="text-[9px] text-gray-400 font-retro uppercase">Format: .EXE</span>
-                                <div className="flex gap-2 font-retro">
+                              <div className="flex justify-between items-center select-none text-[10px] font-sans pt-1.5 border-t border-gray-100 mt-1">
+                                <span className="text-[9px] text-gray-400 font-sans uppercase">Format: .EXE</span>
+                                <div className="flex gap-2 font-sans">
                                   <button 
                                     onClick={() => openProjectProperties(project)}
-                                    className="bg-[#f0f0f0] border border-gray-300 hover:bg-gray-100 active:bg-gray-200 text-gray-700 font-retro font-bold px-2 py-0.5 text-[10px] select-none cursor-pointer rounded-sm"
+                                    className="bg-gray-100 border border-gray-200 hover:bg-gray-200 active:bg-gray-300 text-gray-600 font-sans font-medium px-2 py-0.5 text-[10px] select-none cursor-pointer rounded-sm"
                                   >
                                     📄 PROPERTIES
                                   </button>
@@ -1117,7 +1151,7 @@ export default function App() {
                                       href={project.link}
                                       target="_blank"
                                       rel="noreferrer"
-                                      className="bg-[#f0f0f0] border border-gray-300 hover:bg-gray-100 active:bg-gray-200 text-blue-800 font-retro font-bold px-2 py-0.5 text-[10px] select-none cursor-pointer inline-flex items-center rounded-sm"
+                                      className="bg-blue-50 border border-blue-100 hover:bg-blue-100 active:bg-blue-200 text-blue-700 font-sans font-semibold px-2 py-0.5 text-[10px] select-none cursor-pointer inline-flex items-center rounded-sm"
                                     >
                                       🚀 LAUNCH TARGET
                                     </a>
@@ -1133,123 +1167,166 @@ export default function App() {
                 )}
 
                 {win.id === 'skills' && (
-                  <div className="p-3 select-text flex flex-col gap-3 min-h-[380px] w-full" id="skills-panel">
-                    {/* Inner System Diagnostic Tab Panel */}
-                    <div className="win98-inset bg-[#dfdfdf] p-3 flex-1 flex flex-col gap-3">
-                      <div className="flex gap-3 items-center border-b border-gray-300 pb-2 select-none">
-                        <SkillsExeIcon className="w-12 h-12 flex-shrink-0" />
-                        <div>
-                          <h3 className="font-bold font-retro text-xs md:text-sm text-blue-900 leading-tight">System Capabilities Analyzer</h3>
-                          <p className="text-gray-500 font-bold font-retro text-[10px]">Kapish Verma Diagnostic Engine v98</p>
-                        </div>
+                  <div className="p-3 select-text flex flex-col gap-3.5 min-h-[460px] w-full" id="skills-panel">
+                    {/* System Properties / Component dialog style panel */}
+                    <div className="win98-inset bg-[#dfdfdf] p-4 flex-1 flex flex-col gap-1">
+                      {/* Section heading mimicking screenshot */}
+                      <div className="mb-2 select-none">
+                        <h2 className="text-base md:text-lg font-bold font-sans text-black tracking-normal leading-tight">Installed Components</h2>
+                        <hr className="border-t border-[#808080] border-b border-white my-1.5" />
                       </div>
 
                       {/* Diagnostic list container */}
-                      <div className="flex-1 overflow-y-auto max-h-[295px] pr-1 space-y-3 select-text text-xs">
+                      <div className="flex-1 overflow-y-auto max-h-[300px] pr-1 space-y-3.5 select-text text-xs font-sans">
+                        {/* Languages: */}
                         <div>
-                          <span className="font-bold text-[11px] text-[#000080] font-retro block mb-1">📟 CORE LANGUAGES & COMPILERS</span>
-                          <div className="flex flex-wrap gap-1">
+                          <span className="font-bold text-[11px] md:text-[12px] text-black font-sans block mb-1">Languages:</span>
+                          <div className="flex flex-wrap gap-1.5">
                             {['C++', 'Python', 'Java', 'SQL', 'HTML/CSS'].map(skill => (
-                              <span key={skill} className="px-2 py-0.5 bg-[#dfdfdf] text-black font-bold font-retro text-[11px] border-t border-l border-white border-b border-r border-[#808080] rounded shadow-sm select-all">
+                              <span 
+                                key={skill} 
+                                className="px-2.5 py-0.5 bg-[#c0c0c0] text-black font-semibold font-sans text-[11px] md:text-[12px] border-t-2 border-l-2 border-t-white border-l-white border-b-2 border-r-2 border-b-gray-700 border-r-gray-700 shadow-sm select-all cursor-default active:border-b-2 active:border-r-2 active:border-t-2 active:border-l-2 active:border-b-white active:border-r-white active:border-t-gray-700 active:border-l-gray-700"
+                              >
                                 {skill}
                               </span>
                             ))}
                           </div>
                         </div>
 
+                        {/* Frameworks & Tools: */}
                         <div>
-                          <span className="font-bold text-[11px] text-[#000080] font-retro block mb-1">🛠️ FRAMEWORKS & ECOSYSTEMS</span>
-                          <div className="flex flex-wrap gap-1">
+                          <span className="font-bold text-[11px] md:text-[12px] text-black font-sans block mb-1">Frameworks & Tools:</span>
+                          <div className="flex flex-wrap gap-1.5">
                             {['React', 'Node.js', 'FastAPI', 'ExpressJS', 'Flask', 'Git', 'Figma', 'MySQL'].map(skill => (
-                              <span key={skill} className="px-2 py-0.5 bg-[#dfdfdf] text-black font-bold font-retro text-[11px] border-t border-l border-white border-b border-r border-[#808080] rounded shadow-sm select-all">
+                              <span 
+                                key={skill} 
+                                className="px-2.5 py-0.5 bg-[#c0c0c0] text-black font-semibold font-sans text-[11px] md:text-[12px] border-t-2 border-l-2 border-t-white border-l-white border-b-2 border-r-2 border-b-gray-700 border-r-gray-700 shadow-sm select-all cursor-default active:border-b-2 active:border-r-2 active:border-t-2 active:border-l-2 active:border-b-white active:border-r-white active:border-t-gray-700 active:border-l-gray-700"
+                              >
                                 {skill}
                               </span>
                             ))}
                           </div>
                         </div>
 
+                        {/* Data & ML / AI: */}
                         <div>
-                          <span className="font-bold text-[11px] text-[#000080] font-retro block mb-1">🔮 AI ENGINEERING & DATA MODALS</span>
-                          <div className="flex flex-wrap gap-1">
+                          <span className="font-bold text-[11px] md:text-[12px] text-black font-sans block mb-1">Data & ML:</span>
+                          <div className="flex flex-wrap gap-1.5">
                             {['RAG Architecture', 'LLM Agents', 'Prompt Engineering'].map(skill => (
-                              <span key={skill} className="px-2 py-0.5 bg-[#dfdfdf] text-black font-bold font-retro text-[11px] border-t border-l border-white border-b border-r border-[#808080] rounded shadow-sm select-all">
+                              <span 
+                                key={skill} 
+                                className="px-2.5 py-0.5 bg-[#c0c0c0] text-black font-semibold font-sans text-[11px] md:text-[12px] border-t-2 border-l-2 border-t-white border-l-white border-b-2 border-r-2 border-b-gray-700 border-r-gray-700 shadow-sm select-all cursor-default active:border-b-2 active:border-r-2 active:border-t-2 active:border-l-2 active:border-b-white active:border-r-white active:border-t-gray-700 active:border-l-gray-700"
+                              >
                                 {skill}
                               </span>
                             ))}
                           </div>
                         </div>
 
+                        {/* Product & Strategy: */}
                         <div>
-                          <span className="font-bold text-[11px] text-[#000080] font-retro block mb-1">🎯 PRODUCT & STRATEGIC ANALYSES</span>
-                          <div className="flex flex-wrap gap-1">
+                          <span className="font-bold text-[11px] md:text-[12px] text-black font-sans block mb-1">Product & Strategic Analyses:</span>
+                          <div className="flex flex-wrap gap-1.5">
                             {['Product Sense & Strategy', 'Feature Prioritization', 'PRDs Configuration', 'Metric Mapping', 'UX Audit Journeys', 'Retention Loops'].map(skill => (
-                              <span key={skill} className="px-2 py-0.5 bg-[#dfdfdf] text-black font-bold font-retro text-[11px] border-t border-l border-white border-b border-r border-[#808080] rounded shadow-sm select-all">
+                              <span 
+                                key={skill} 
+                                className="px-2.5 py-0.5 bg-[#c0c0c0] text-black font-semibold font-sans text-[11px] md:text-[12px] border-t-2 border-l-2 border-t-white border-l-white border-b-2 border-r-2 border-b-gray-700 border-r-gray-700 shadow-sm select-all cursor-default active:border-b-2 active:border-r-2 active:border-t-2 active:border-l-2 active:border-b-white active:border-r-white active:border-t-gray-700 active:border-l-gray-700"
+                              >
                                 {skill}
                               </span>
                             ))}
                           </div>
+                        </div>
+
+                        {/* Section separator line before Certifications */}
+                        <div className="pt-1.5 select-none">
+                          <hr className="border-t border-[#808080] border-b border-white my-1.5" />
+                        </div>
+
+                        {/* Certifications: */}
+                        <div>
+                          <span className="font-bold text-[11px] md:text-[12px] text-black font-sans block mb-1.5">Certifications:</span>
+                          <ul className="list-disc pl-5 space-y-1.5 text-[11.5px] md:text-[12px] text-black font-sans select-text">
+                            <li>ML Specialization (Andrew Ng — Stanford/Coursera)</li>
+                            <li>McKinsey Forward Learner (McKinsey&Co.)</li>
+                            <li>Data Analytics with Python (IIT Roorkee)</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Recessed bottom status bar */}
+                      <div className="mt-2.5 select-none">
+                        <div className="border-2 border-t-gray-500 border-l-gray-500 border-b-white border-r-white bg-[#dfdfdf] px-2 py-0.5 text-[11px] text-black font-sans flex justify-between items-center h-[20px] rounded-sm">
+                          <span>25 components installed</span>
+                          <span className="text-gray-500 pr-1 select-none">Ready</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Button footer controls */}
-                    <div className="flex justify-between items-center text-xs select-none">
-                      <span className="text-[10px] text-green-800 font-bold font-retro">● Registry verification OK</span>
-                      <div className="flex gap-1.5 font-retro">
-                        <button onClick={() => closeWindow('skills')} className="win98-button font-retro px-5 py-1 text-xs font-semibold cursor-pointer">OK</button>
-                        <button onClick={() => closeWindow('skills')} className="win98-button font-retro px-3 py-1 text-xs text-gray-500 cursor-pointer">Cancel</button>
+                    <div className="flex justify-end items-center text-xs select-none">
+                      <div className="flex gap-1.5 font-sans">
+                        <button onClick={() => closeWindow('skills')} className="win98-button font-sans px-5 py-1 text-[11px] font-bold cursor-pointer">OK</button>
+                        <button onClick={() => closeWindow('skills')} className="win98-button font-sans px-4 py-1 text-[11px] font-semibold text-gray-500 cursor-pointer">Cancel</button>
                       </div>
                     </div>
                   </div>
                 )}
 
                 {win.id === 'education' && (
-                  <div className="p-3 flex flex-col gap-3 min-h-[340px]" id="education-panel">
-                    {/* Inner registrar record */}
-                    <div className="win98-inset bg-[#dfdfdf] p-3.5 flex-1 flex flex-col gap-3">
-                      <div className="border-b border-gray-300 pb-2 select-none text-xs">
-                        <h3 className="font-bold text-sm text-blue-900 leading-tight">🏫 Registrar Databanks — Registry Query</h3>
-                        <p className="text-gray-500 text-[10px]">Accessing student database registry lists...</p>
+                  <div className="p-3 select-text flex flex-col gap-3 min-h-[340px]" id="education-panel">
+                    {/* Minimal Academic Properties Panel layout */}
+                    <div className="win98-inset bg-[#dfdfdf] p-4 flex-1 flex flex-col gap-1">
+                      <div className="mb-2.5 select-none">
+                        <h2 className="text-base md:text-lg font-bold font-sans text-black tracking-normal leading-tight">Academic Registry Records</h2>
+                        <hr className="border-t border-[#808080] border-b border-white my-1.5" />
                       </div>
 
-                      <div className="flex flex-col gap-3 overflow-y-auto max-h-[300px]">
+                      <div className="flex flex-col gap-4 overflow-y-auto max-h-[300px] font-sans text-xs">
                         {/* NET JASH SUBHAS IN ST */}
-                        <div className="win98-window bg-white border border-gray-300 p-3.5 flex gap-3 text-xs shadow-sm">
-                          <span className="text-3xl select-none">🎓</span>
-                          <div className="flex-1 flex flex-col gap-1 text-black">
-                            <div className="flex justify-between font-bold text-gray-800 border-b border-gray-100 pb-0.5 text-[11px] md:text-sm">
-                              <span>Netaji Subhas University of Technology (NSUT)</span>
-                              <span className="font-mono text-gray-400 text-[9px] md:text-xs">2023 - 2027</span>
+                        <div className="border border-gray-300 bg-white p-3.5 flex gap-3 text-xs rounded-sm">
+                          <span className="text-2xl select-none">🎓</span>
+                          <div className="flex-1 flex flex-col gap-1.5 text-black">
+                            <div className="flex justify-between font-bold text-gray-800 border-b border-gray-100 pb-1 text-[11px] md:text-[13px]">
+                              <span className="text-blue-900 font-bold">Netaji Subhas University of Technology (NSUT)</span>
+                              <span className="font-mono text-gray-500 font-semibold text-[10px] md:text-xs">2023 - 2027</span>
                             </div>
-                            <p className="font-bold text-blue-900 text-xs text-left">Bachelor of Technology (B.Tech)</p>
-                            <p className="text-gray-600 font-semibold text-[11px] text-left">Major: Computer Science and Engineering</p>
-                            <p className="text-gray-400 text-[10px] mt-1 text-left leading-normal font-semibold">
-                              Activities & Focus: RAG orchestration, AI workflow building, Data Structures, analysis & Web technology.
+                            <p className="font-extrabold text-gray-900 text-xs text-left">Bachelor of Technology (B.Tech)</p>
+                            <p className="text-gray-700 font-semibold text-[11px] text-left">Major: Computer Science and Engineering</p>
+                            <p className="text-gray-500 text-[11px] mt-0.5 text-left leading-relaxed">
+                              Activities & Focus: Intelligent RAG Orchestration, Machine Learning Datasets, Core Algorithms, Data Structures, and Modern Web Applications.
                             </p>
                           </div>
                         </div>
 
                         {/* HIGHER SEC */}
-                        <div className="win98-window bg-white border border-gray-300 p-3.5 flex gap-3 text-xs shadow-sm">
-                          <span className="text-3xl select-none">🏫</span>
-                          <div className="flex-1 flex flex-col gap-1 text-black">
-                            <div className="flex justify-between font-bold text-gray-800 border-b border-gray-100 pb-0.5 text-[11px] md:text-sm">
-                              <span>Lilawati Vidya Mandir Sr. Sec. School</span>
-                              <span className="font-mono text-gray-400 text-[9px] md:text-xs">Class XII</span>
+                        <div className="border border-gray-300 bg-white p-3.5 flex gap-3 text-xs rounded-sm">
+                          <span className="text-2xl select-none">🏫</span>
+                          <div className="flex-1 flex flex-col gap-1.5 text-black">
+                            <div className="flex justify-between font-bold text-gray-800 border-b border-gray-100 pb-1 text-[11px] md:text-[13px]">
+                              <span className="text-blue-900 font-bold">Lilawati Vidya Mandir Sr. Sec. School</span>
+                              <span className="font-mono text-gray-500 font-semibold text-[10px] md:text-xs">Class XII</span>
                             </div>
-                            <p className="font-bold text-blue-900 text-xs text-left">All-India Senior School Certificate (CBSE)</p>
-                            <p className="text-gray-600 font-semibold text-[11px] text-left">Academic Performance: 94%</p>
-                            <p className="text-gray-400 text-[10px] mt-1 text-left leading-normal font-semibold">
-                              Focus: Deep foundations in logical reasoning, Physics, Chemistry, and Mathematics (PCM).
+                            <p className="font-extrabold text-gray-900 text-xs text-left">All-India Senior School Certificate (CBSE)</p>
+                            <p className="text-gray-700 font-semibold text-[11px] text-left">Academic Performance: 94% Cumulative</p>
+                            <p className="text-gray-500 text-[11px] mt-0.5 text-left leading-relaxed">
+                              Focus: Deep foundations in logical reasoning, Physics, Chemistry, and Advanced Mathematics (PCM).
                             </p>
                           </div>
                         </div>
                       </div>
+
+                      {/* Recessed bottom status bar */}
+                      <div className="mt-2.5 select-none">
+                        <div className="border-2 border-t-gray-500 border-l-gray-500 border-b-white border-r-white bg-[#dfdfdf] px-2 py-0.5 text-[11px] text-black font-sans flex justify-between items-center h-[20px] rounded-sm">
+                          <span>2 registry credentials verified</span>
+                          <span className="text-gray-500 pr-1 select-none">Ready</span>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="flex justify-between items-center text-xs select-none">
-                      <span className="text-[10px] text-gray-500 font-semibold">Status: 2 entries confirmed healthy</span>
-                      <button onClick={() => closeWindow('education')} className="win98-button px-5 py-1 text-xs font-bold cursor-pointer">CLOSE</button>
+                    <div className="flex justify-end items-center text-xs select-none">
+                      <button onClick={() => closeWindow('education')} className="win98-button font-sans px-5 py-1 text-[11px] font-bold cursor-pointer">Close</button>
                     </div>
                   </div>
                 )}
@@ -1361,6 +1438,48 @@ export default function App() {
                     <div className="bg-[#c0c0c0] border-t border-gray-400 p-1 px-2.5 text-[11px] font-sans flex justify-between select-none">
                       <span className="font-bold text-gray-700">Done</span>
                       <span className="text-blue-900 font-extrabold pr-2">🌐 Internet Zone</span>
+                    </div>
+                  </div>
+                )}
+
+                {win.id === 'workPhotos' && (
+                  <div className="flex flex-col h-[400px]" id="work-photos-panel">
+                    <div className="bg-[#c0c0c0] p-1.5 border-b border-gray-400 flex items-center justify-between text-xs select-none">
+                      <span className="font-mono text-gray-700 bg-white px-2 py-0.5 border border-gray-400 select-all font-semibold">
+                        C:\My Documents\Work Photos
+                      </span>
+                      <span className="text-gray-500 font-mono">8 Item(s)</span>
+                    </div>
+
+                    <div className="win98-inset bg-white flex-1 p-3 overflow-y-auto select-none">
+                      <p className="text-xs text-mem text-gray-600 mb-3 border-b border-dashed border-gray-200 pb-1.5 font-sans">
+                        📸 Double-click any photo below to inspect in high-contrast Retro Image Viewer & view information:
+                      </p>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3.5">
+                        {WORK_PHOTOS.map(photo => (
+                          <div 
+                            key={photo.title}
+                            onClick={() => setSelectedExplorerItemId(`work-${photo.title}`)}
+                            onDoubleClick={() => {
+                              setActivePhotoViewerUrl(photo.url);
+                              setActivePhotoViewerTitle(photo.title);
+                            }}
+                            className={`flex flex-col items-center bg-[#f5f5f5] border border-gray-200 p-2 text-center cursor-pointer transition-colors max-w-[155px] mx-auto rounded-sm ${selectedExplorerItemId === `work-${photo.title}` ? 'bg-[#000080]/15 border-blue-800' : ''}`}
+                          >
+                            <div className="w-full aspect-[4/3] border border-gray-300 overflow-hidden bg-gray-50 flex items-center justify-center pointer-events-none select-none">
+                              <img 
+                                src={photo.url} 
+                                alt={photo.title}
+                                className="object-cover w-full h-full"
+                                referrerPolicy="no-referrer"
+                              />
+                            </div>
+                            <span className="text-[11px] text-gray-800 font-sans mt-2 truncate w-full block font-medium">
+                              {photo.title}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
