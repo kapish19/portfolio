@@ -1,127 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-retro: "MS Sans Serif", Tahoma, sans-serif;
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-mono: "VT323", monospace;
-  --font-courier: "Courier Prime", "Courier New", monospace;
-  --font-inter: "Inter", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  
+  --color-bg-soft: #F7F8FA;
+  --color-accent-primary: #2563EB;
+  --color-accent-secondary: #DBEAFE;
+  --color-text-dark: #111827;
+  --color-text-muted: #6B7280;
+  
+  --color-highlight-purple: #A78BFA;
+  --color-highlight-pink: #F472B6;
+  --color-highlight-green: #34D399;
 }
 
 @layer base {
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    background-color: #008080;
-    font-family: "MS Sans Serif", Tahoma, "Segoe UI", sans-serif;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: none;
-    text-rendering: crispEdges;
-    user-select: none;
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-soft text-text-dark font-sans antialiased;
   }
 }
 
-/* Classic Windows 98 3D borders */
-.win98-window {
-  background-color: #c0c0c0;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  box-shadow: 1px 1px 0 0 #000000;
-  padding: 3px;
+.glass-nav {
+  @apply sticky top-0 z-50 transition-all duration-300;
 }
 
-.win98-outset {
-  background-color: #c0c0c0;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  box-shadow: 1px 1px 0px 0px #000000;
+.glass-nav.scrolled {
+  @apply bg-white/80 backdrop-blur-md shadow-sm;
 }
 
-.win98-inset {
-  background-color: #ffffff;
-  border-top: 2.5px solid #808080;
-  border-left: 2.5px solid #808080;
-  border-right: 2.5px solid #ffffff;
-  border-bottom: 2.5px solid #ffffff;
-  box-shadow: -1.5px -1.5px 0px 0px #000000 inset;
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
 }
 
-.win98-button {
-  background-color: #c0c0c0;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  box-shadow: 1px 1px 0 0 #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.section-padding {
+  @apply py-12 md:py-20;
 }
 
-.win98-button:active:not(:disabled), .win98-button-depressed {
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
-  box-shadow: -1px -1px 0 0 #000000 inset;
-  padding-top: 1px;
-  padding-left: 1px;
+.dotted-grid {
+  background-image: radial-gradient(#D1D5DB 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
-.win98-titlebar-active {
-  background: linear-gradient(90deg, #000080, #1084d0);
-  color: #ffffff;
-}
-
-.win98-titlebar-inactive {
-  background-color: #808080;
-  color: #c0c0c0;
-}
-
-/* Custom retro scrollbars */
-::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
-  background-color: #dfdfdf;
-  background-image: radial-gradient(#ffffff 25%, transparent 25%), radial-gradient(#ffffff 25%, transparent 25%);
-  background-size: 4px 4px;
-  background-position: 0 0, 2px 2px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #c0c0c0;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  box-shadow: 1px 1px 0 0 #000000;
-}
-
-::-webkit-scrollbar-thumb:active {
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
-  box-shadow: -1px -1px 0 0 #000000 inset;
-}
-
-/* Retro icon styling */
-.retro-icon-container {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
-
-/* Dotted desktop pattern */
-.classic-dither {
-  background-color: #c0c0c0;
-  background-image: radial-gradient(#808080 25%, transparent 25%), radial-gradient(#808080 25%, transparent 25%);
-  background-size: 4px 4px;
-  background-position: 0 0, 2px 2px;
+.container-custom {
+  @apply max-w-[1200px] mx-auto px-6;
 }

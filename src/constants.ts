@@ -51,6 +51,26 @@ export const PROJECTS: Project[] = [
     link: 'https://www.notion.so/919010446bff48fd8f0d09d021e6b6f6?v=8a88bd683ad14d32900192cc0afbc71a&p=8a79c66c69944cb5998e4f2cc835270d&pm=c'
   },
   {
+    id: '3',
+    title: 'Xyne Spaces',
+    description: 'An AI-powered collaboration tool that brings Slack, Jira, Notion & Chrome into a single symbiotic package for maximum productivity.',
+    image: 'https://picsum.photos/seed/xyne/1200/800',
+    tags: ['Product Designer', 'Productivity', 'Desktop'],
+    category: 'case-study',
+    tools: ['Figma', 'Electron', 'OpenAI'],
+    link: '#'
+  },
+  {
+    id: '4',
+    title: 'Open Finance Website',
+    description: 'A Checkout Simulator showcasing deep integration with OpenFinance guidelines with a customizable checkout flow.',
+    image: 'https://picsum.photos/seed/finance/1200/800',
+    tags: ['Developer', 'Fintech', 'Web'],
+    category: 'case-study',
+    tools: ['React', 'Tailwind', 'D3.js'],
+    link: '#'
+  },
+  {
     id: '6',
     title: 'HealthConnect',
     description: 'Built AI healthcare platform improving emergency coverage mapping',
